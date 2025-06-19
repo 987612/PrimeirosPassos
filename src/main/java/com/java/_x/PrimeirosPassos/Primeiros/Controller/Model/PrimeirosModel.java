@@ -1,5 +1,6 @@
-package com.java._x.PrimeirosPassos;
+package com.java._x.PrimeirosPassos.Primeiros.Controller.Model;
 
+import com.java._x.PrimeirosPassos.Missoes.MissoesModel;
 import jakarta.persistence.*;
 
 @Entity
@@ -7,10 +8,13 @@ import jakarta.persistence.*;
 public class PrimeirosModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    long id;
-    String nome;
-    String email;
-    int idade;
+    private long id;
+    private String nome;
+    private String email;
+    private int idade;
+    @ManyToOne
+    @JoinColumn(name = "missoes_id")//forening key ou chave estrangeira
+    private MissoesModel missoes;
     public PrimeirosModel(){
 
 }
